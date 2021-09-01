@@ -39,6 +39,7 @@ class PageController extends Controller
     public function view_post($id)
     {
         $post = Post::find($id);
-        return $post;
+        $otherposts = Post::where('id', '!=', $id)->orderBy('created_at', 'DESC')->paginate(1);
+        return view('pages.post_details', ['post' => $post, 'otherpost' => $otherposts]);
     }
 }
