@@ -22,7 +22,19 @@
                         </button>
                     </div>
                 </form>
+
+                {{-- First Column --}}
+                <div class="py-4 my-14 bg-blue-100 px-4">
+                    <h1 class="text-lg font-bold">All Categories</h1>
+                @foreach ($category as $cat)
+                    <p class="text-gray-500">{{ $cat->category }}</p>
+                @endforeach
+                </div>
             </div>
+
+
+            
+
 
             {{-- Second Column --}}
             <div class="py-4 bg-blue-900 text-white">

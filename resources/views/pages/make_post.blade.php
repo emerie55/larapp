@@ -27,7 +27,7 @@
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="title" class="mb-2 text-xl">Post Title</label>
+                    <label for="title" class="mb-2 text-xl">Post Body</label>
                     <textarea class="block h-24 rounded w-1/2" name="content"></textarea>
                 </div>
                 <div class="mb-4">
