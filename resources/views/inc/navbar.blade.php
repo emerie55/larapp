@@ -4,5 +4,13 @@
         <a href="{{ route('categories') }}" class="py-2 px-4 inline-block hover:bg-gray-50 hover:text-blue-900 transition-all duration-400 {{ $active == "categories" ? 'bg-gray-50 text-blue-500' : '' }}">Manage Categories</a>
         <a href="{{ route('make_post') }}" class="py-2 px-4 inline-block hover:bg-gray-50 hover:text-blue-900 transition-all duration-400 {{ $active == "make_post" ? 'bg-gray-50 text-blue-500' : '' }}">Make Post</a>
         <a href="#" class="py-2 px-4 inline-block hover:bg-gray-50 hover:text-blue-900 transition-all duration-400">All Post</a>
+        <form action="{{ route('logout') }}" method="POST" class="inline">
+            @csrf
+        <button href="#" class="py-2 px-4 inline-block hover:bg-gray-50 hover:text-blue-900 transition-all duration-400">Logout</button>
+        </form>
+
+        <a href="#" class="py-2 px-4 inline-block hover:bg-gray-50 hover:text-blue-900 transition-all duration-400 ">
+            {{ Auth::user()->name }}
+        </a>
     </div>
 </nav>

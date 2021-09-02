@@ -21,7 +21,7 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PageController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [PageController::class, 'dashboard']);
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     Route::get('/make-post', [PageController::class, 'create_post'])->name('make_post');
     Route::get('/manage-post', [PageController::class, 'view_category'])->name('categories');
 
@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('posts')->group(function () {
         Route::post('/add-category', [PostController::class, 'add_category']);
         Route::post('/add-post', [PostController::class, 'add_post'])->name('add_post');
+        Route::get('/read-post/{post_id}', [PageController::class, 'view_post'])->name('view_post');
     });
 });
 

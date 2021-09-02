@@ -31,6 +31,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <Link :href="route('register')" class="underline text-sm text-gray-600 mr-8 hover:text-gray-900">
+                    Register
+                </Link>
                 <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Forgot your password?
                 </Link>
@@ -81,6 +84,9 @@
             }
         },
 
+        mounted(){
+        },
+
         methods: {
             submit() {
                 this.form
@@ -89,7 +95,10 @@
                         remember: this.form.remember ? 'on' : ''
                     }))
                     .post(this.route('login'), {
-                        onFinish: () => this.form.reset('password'),
+                        onFinish: () => {
+                            window.location.href = this.route('dashboard')
+                            // this.form.reset('password');
+                        },
                     })
             }
         }
